@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr7wbjrkdr0nt"]
+
+[ext_resource type="Script" path="res://scenes/game_over.gd" id="1_70ckh"]
+[ext_resource type="FontFile" uid="uid://dad0oubr6ns7r" path="res://graphics/fonts/Pixellettersfull-BnJ5.ttf" id="1_l6wko"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_70ckh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.156863, 0.270588, 1)
+metadata/_edit_lock_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.905882, 0.905882, 1)
+theme_override_fonts/font = ExtResource("1_l6wko")
+theme_override_font_sizes/font_size = 90
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.905882, 0.905882, 1)
+theme_override_fonts/font = ExtResource("1_l6wko")
+theme_override_font_sizes/font_size = 35
+text = "SCORE: "
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.5
+offset_top = -40.0
+offset_right = 87.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Press 'escape' to restart"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6wko")
+theme_override_font_sizes/font_size = 30
+text = "TIME: "

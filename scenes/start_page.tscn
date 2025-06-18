@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsa02jp23bg1m"]
+
+[ext_resource type="Script" path="res://scenes/start_page.gd" id="1_8he30"]
+[ext_resource type="FontFile" uid="uid://dad0oubr6ns7r" path="res://graphics/fonts/Pixellettersfull-BnJ5.ttf" id="1_tun06"]
+[ext_resource type="FontFile" uid="uid://dxiism4qn3dmm" path="res://graphics/fonts/LoveDays-2v7Oe.ttf" id="2_eph74"]
+[ext_resource type="Texture2D" uid="uid://c6iklx1ra5lvi" path="res://graphics/space-game.png" id="3_jxaiv"]
+[ext_resource type="Texture2D" uid="uid://m8hpxag8sjvk" path="res://graphics/alien.png" id="4_rr15k"]
+[ext_resource type="Texture2D" uid="uid://bdxdak7maj5bm" path="res://graphics/393601861643818193-128.png" id="5_bb7t0"]
+
+[node name="StartPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8he30")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.286275, 0.486275, 1)
+metadata/_edit_lock_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -30.0
+offset_right = 139.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tun06")
+theme_override_font_sizes/font_size = 60
+text = "START GAME"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.5
+offset_top = 150.0
+offset_right = 54.5
+offset_bottom = 173.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.905882, 0.905882, 0.905882, 1)
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_eph74")
+theme_override_font_sizes/font_size = 80
+text = "Space Invader"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(198, 523)
+scale = Vector2(0.554688, 0.519531)
+texture = ExtResource("3_jxaiv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(988, 376)
+rotation = 0.359538
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_rr15k")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(374, 154)
+texture = ExtResource("5_bb7t0")
+
+[connection signal="pressed" from="CenterContainer/Button" to="." method="_on_button_pressed"]

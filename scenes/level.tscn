@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://3mmhfnut1q5l"]
+
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_r1nrs"]
+[ext_resource type="PackedScene" uid="uid://878au4f5w3ab" path="res://scenes/player.tscn" id="1_yiuus"]
+[ext_resource type="Texture2D" uid="uid://bb57bnjxukedl" path="res://graphics/istockphoto-1030372054-612x612.jpg" id="2_03jjf"]
+[ext_resource type="PackedScene" uid="uid://j7ng76xti7i4" path="res://scenes/ui.tscn" id="4_dkq85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27ncv"]
+size = Vector2(1335, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysej8"]
+size = Vector2(21.5, 758)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_r1nrs")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(646.5, 363.25)
+scale = Vector2(2.16503, 1.8236)
+texture = ExtResource("2_03jjf")
+
+[node name="Player" parent="." instance=ExtResource("1_yiuus")]
+position = Vector2(648, 410)
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(656, -19)
+shape = SubResource("RectangleShape2D_27ncv")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(648, 739)
+shape = SubResource("RectangleShape2D_27ncv")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(-11, 372)
+shape = SubResource("RectangleShape2D_ysej8")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+position = Vector2(1291, 383)
+shape = SubResource("RectangleShape2D_ysej8")
+
+[node name="MeteorTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Meteors" type="Node2D" parent="."]
+
+[node name="Lasers" type="Node2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("4_dkq85")]
+
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
+[connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]

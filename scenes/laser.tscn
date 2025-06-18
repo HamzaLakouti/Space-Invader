@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c125cedxtbib3"]
+
+[ext_resource type="Script" path="res://scenes/laser.gd" id="1_6x2c2"]
+[ext_resource type="Texture2D" uid="uid://bdf4gexsspt8p" path="res://graphics/icons8-bullet-48.png" id="1_nv7u4"]
+
+[node name="Laser" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_6x2c2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.785398
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_nv7u4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.8, 0.8)
+polygon = PackedVector2Array(-9, 19, 9, 19, 8, -8, 2, -28, -1, -28, -8, -7)

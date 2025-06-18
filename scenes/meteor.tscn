@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b037wve6ui857"]
+
+[ext_resource type="Script" path="res://scenes/meteor.gd" id="1_ptnyw"]
+[ext_resource type="Texture2D" uid="uid://bdxdak7maj5bm" path="res://graphics/393601861643818193-128.png" id="1_vllg3"]
+[ext_resource type="AudioStream" uid="uid://bm6lmqg1cv6cc" path="res://audio/boom_effect.wav" id="3_afjn6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4nmma"]
+radius = 29.8221
+height = 61.1513
+
+[node name="Meteor" type="Area2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_ptnyw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -0.999999)
+scale = Vector2(0.828125, 0.820313)
+texture = ExtResource("1_vllg3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 1)
+rotation = 0.71733
+shape = SubResource("CapsuleShape2D_4nmma")
+
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_afjn6")
+volume_db = -15.0
+pitch_scale = 0.7
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
